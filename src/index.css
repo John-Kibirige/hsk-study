@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #edf1eb;
+  --color-sheet: #f8faf6;
+  --color-mist: #d3ddd4;
+  --color-ink: #1d3832;
+  --color-jade: #3a8273;
+  --color-jade-soft: #dcebe5;
+  --color-cinnabar: #b5402c;
+  --color-cinnabar-soft: #f5e1dc;
+  --color-amber: #b7791f;
+  --color-amber-soft: #f6ead3;
+  --color-body: #27312e;
+
+  /* Tone colours: 1 high, 2 rising, 3 dipping, 4 falling, 5 neutral */
+  --color-tone1: #c0392b;
+  --color-tone2: #2f855a;
+  --color-tone3: #2b6cb0;
+  --color-tone4: #7b3fa0;
+  --color-tone5: #6b7c77;
+
+  --font-ui: "Figtree", system-ui, sans-serif;
+  --font-zh: "Noto Serif SC", "Songti SC", "SimSun", serif;
+  --font-brush: "Ma Shan Zheng", "Noto Serif SC", serif;
+}
+
+html {
+  background: var(--color-paper);
+  -webkit-text-size-adjust: 100%;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--font-ui);
+  color: var(--color-body);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-jade);
+  outline-offset: 2px;
+}
+
+/* Card flip */
+.flip-scene {
+  perspective: 1600px;
+}
+.flip-card {
+  transform-style: preserve-3d;
+  transition: transform 0.45s cubic-bezier(0.3, 0.7, 0.2, 1);
+}
+.flip-card.is-flipped {
+  transform: rotateY(180deg);
+}
+.flip-face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.flip-back {
+  transform: rotateY(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
